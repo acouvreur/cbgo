@@ -22,5 +22,8 @@ jobs:
         run: go vet ./...
 
       # The tests need no Bluetooth controller.
+      - name: diag
+        run: go test -v -count=1 -run TestDiag .
+
       - name: test
-        run: go test ./...
+        run: go test -count=10 ./...
